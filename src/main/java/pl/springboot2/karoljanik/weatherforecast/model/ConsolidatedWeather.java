@@ -1,5 +1,7 @@
 package pl.springboot2.karoljanik.weatherforecast.model;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -48,7 +50,7 @@ public class ConsolidatedWeather {
     @JsonProperty("max_temp")
     private Double maxTemp;
     @JsonProperty("the_temp")
-    private Double theTemp;
+    private BigDecimal theTemp;
     @JsonProperty("wind_speed")
     private Double windSpeed;
     @JsonProperty("wind_direction")
@@ -145,12 +147,12 @@ public class ConsolidatedWeather {
     }
 
     @JsonProperty("the_temp")
-    public Double getTheTemp() {
-        return theTemp;
+    public BigDecimal getTheTemp() {
+        return theTemp.setScale(1, RoundingMode.HALF_UP);
     }
 
     @JsonProperty("the_temp")
-    public void setTheTemp(Double theTemp) {
+    public void setTheTemp(BigDecimal theTemp) {
         this.theTemp = theTemp;
     }
 
