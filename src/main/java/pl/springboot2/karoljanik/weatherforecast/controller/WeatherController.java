@@ -1,17 +1,14 @@
 package pl.springboot2.karoljanik.weatherforecast.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import pl.springboot2.karoljanik.weatherforecast.model.Parent;
-import pl.springboot2.karoljanik.weatherforecast.model.Weather;
+import org.springframework.web.bind.annotation.*;
+import pl.springboot2.karoljanik.weatherforecast.model.ConsolidatedWeather;
 import pl.springboot2.karoljanik.weatherforecast.service.WeatherService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/weather")
+@CrossOrigin(origins = "http://localhost:4200")
 public class WeatherController {
 
     private final WeatherService weatherService;
@@ -20,8 +17,8 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping()
-    public List<Weather> getCity() {
-        return weatherService.getCity();
+    @GetMapping(path = "/{city}")
+    public List<ConsolidatedWeather> getCity(@PathVariable("city") String city) {
+        return weatherService.getCity(city);
     }
 }
