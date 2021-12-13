@@ -1,6 +1,6 @@
 # Weather Forecast
 
-> This is simple Weather Forecast application with four day forecast for given city written in Spring Boot 2 and Angular CLI using HTTP Client from Free Random User API.
+> This is simple Weather Forecast application with four day forecast for given city. Written in Spring Boot 2 and Angular CLI using free weather API.
 
 <img src="https://imgupload.pl/images/2021/12/13/Weather-Forecast.png" alt="Weather-Forecast.png" border="0" />
 
